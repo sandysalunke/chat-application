@@ -1,15 +1,15 @@
-{
-    "name": "chatbox",
-    "version": "0.0.1",
-    "description": "chatbox- A peer to peer chat application",
-    "dependencies": {
-        "express": "^4.10.2",
-        "http": "0.0.0",
-        "path": "^0.12.7",
-        "socket.io": "^2.1.1"
-    },
-    "scripts": {
-	"start": "node index.js"
+{
+    "name": "chatbox",
+    "version": "0.0.1",
+    "description": "chatbox- A peer to peer chat application",
+    "dependencies": {
+        "express": "^4.10.2",
+        "http": "0.0.0",
+        "path": "^0.12.7",
+        "socket.io": "^2.1.1"
     },
-    "main": "index.js"
+    "scripts": {
+	"start": "node index.js"
+    },
+    "main": "index.js"
 }
