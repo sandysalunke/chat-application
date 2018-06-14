@@ -1,7 +1,7 @@
 {
-    "name": "socket-chat-example",
+    "name": "chatbox",
     "version": "0.0.1",
-    "description": "my first socket.io app",
+    "description": "chatbox- A peer to peer chat application",
     "dependencies": {
         "express": "^4.10.2",
         "http": "0.0.0",
