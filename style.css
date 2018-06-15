@@ -8,7 +8,7 @@
 body { font-size: 16px; font-family: "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif; }
 #form, #messages { display: none; }
 .userInfo { color: #FFF; font-weight: bold; font-size: 18px; width: 100%; border: 1px solid rgb(177, 113, 234); padding: 20px 8px; background: rgb(181, 125, 232); text-align: center; }
-.onlineUsersContainer { width: 20%; float: left; min-height: 869px; background-color: rgb(225, 203, 245); }
+.onlineUsersContainer { width: 20%; float: left; min-height: 869px; background-color: rgb(225, 203, 245); height: auto; max-height: 869px; overflow-y: auto; overflow-x: hidden; }
 .onlineUsersContainer ul li { list-style-type: none; cursor: pointer; margin: 0; padding: 12px; box-shadow: 0px 2px 8px #C28FF1; border-radius: 10px; }
 .onlineUsersContainer ul li::before { content: "• "; color: #2D9F0B; font-size: 20px; font-weight: bold; padding: 5px; }
 .onlineUsersContainer ul li.active { background: rgba(211, 176, 243, 0.92); }
@@ -18,7 +18,7 @@ body { font-size: 16px; font-family: "Lucida Grande",Verdana,Arial,"Bitstream Ve
 form { background: #2E8E12; padding: 3px; position: fixed; bottom: 0; width: 80%; }
 form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
 form #button { color:#FFF; background: #34BB0C; border: none; padding: 10px;  width: 9%; }
-#messages { list-style-type: none; margin: 0; padding: 0; position: absolute; bottom: 70px; float: left; width: 79%; }
+#messages { list-style-type: none; margin: 0; padding: 0; position: absolute; bottom: 70px; float: left; width: 79%; height: auto; max-height: 100%; overflow-y: auto; overflow-x: hidden; }
 #messages li { padding: 5px 10px; }
 #notifyTyping { font-size: 12px; position: fixed; bottom: 42px; width: 100%; padding: 5px; }
 .chatNotificationCount { color: #FFF; display: none; float: right; border-radius: 12px; border: 1px solid #2E8E12; background: #34BB0C; padding: 2px 6px; }
