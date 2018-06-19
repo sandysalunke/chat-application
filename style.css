@@ -18,7 +18,7 @@ body { font-size: 16px; font-family: "Lucida Grande",Verdana,Arial,"Bitstream Ve
 form { background: #2E8E12; padding: 3px; position: fixed; bottom: 0; width: 80%; }
 form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
 form #button { color:#FFF; background: #34BB0C; border: none; padding: 10px;  width: 9%; }
-#messages { list-style-type: none; margin: 0; padding: 0; position: absolute; bottom: 70px; top: 0px; float: left; width: 79%; height: auto; max-height: 100%; overflow-y: auto; overflow-x: hidden; }
+#messages { list-style-type: none; margin: 0; padding: 0; position: absolute; bottom: 70px; padding-top: 70px; float: left; width: 79%; height: auto; max-height: 100%; overflow-y: auto; overflow-x: hidden; }
 #messages li { padding: 5px 10px; }
 #notifyTyping { font-size: 12px; position: fixed; bottom: 42px; width: 100%; padding: 5px; }
 .chatNotificationCount { color: #FFF; display: none; float: right; border-radius: 12px; border: 1px solid #2E8E12; background: #34BB0C; padding: 2px 6px; }
