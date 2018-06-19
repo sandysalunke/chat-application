@@ -12,6 +12,10 @@ var myFriend = {};
 
 // Document Ready function called automatically on page load
 $(document).ready(function () {
+  var windowHeight = $(window).height();
+  $('.onlineUsersContainer').css('min-height', windowHeight).css('max-height', windowHeight);
+  $('.chatContainer').css('min-height', windowHeight);
+  
   loginMe();
 });
 
