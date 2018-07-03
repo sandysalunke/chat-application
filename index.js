@@ -83,6 +83,4 @@ http.listen(server_port, server_ip_address, function () {
   setInterval(function () {
     exec("rm -rf assets/uploads/* \;");
   }, 600000);
-
-  console.log('listening on *:3000');
 });

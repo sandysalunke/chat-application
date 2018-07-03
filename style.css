@@ -12,7 +12,7 @@ form input { border: 0; float: left; margin-right: .5%; }
 #txtChatMessage { padding: 10px; width: 85%; }
 form #btnChatMessage { color:#FFF; background: #34BB0C; border: none; padding: 10px;  width: 9%; }
 #fileAttachment { display: none; }
-#imgAttachment { padding: 3px; }
+#imgAttachment { cursor: pointer; padding: 3px; }
 .chatImage { max-width: 100%; }
 .userInfo { color: #FFF; font-weight: bold; font-size: 18px; width: 100%; border: 1px solid rgb(177, 113, 234); padding: 20px 8px; background: rgb(181, 125, 232); text-align: center; }
 .onlineUsersContainer { width: 20%; float: left; background-color: rgb(225, 203, 245); height: auto; overflow-y: auto; overflow-x: hidden; }
