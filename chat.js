@@ -76,7 +76,7 @@ function ajaxFileUpload(fileName, fileData) {
         message.sender = myUser.id;
         message.receiver = myFriend.id;
         // Function call to send attached file to sender/seceiver in chatbox
-        appendMyChatboxMessage(message);
+        appendSendersChatboxMessage(message);
       } else {
         throw 'File upload failed';
       }
@@ -110,36 +110,10 @@ function submitfunction() {
     message.sender = myUser.id;
     message.receiver = myFriend.id;
     // Function call to send attached file to sender/seceiver in chatbox
-    appendMyChatboxMessage(message);
+    appendSendersChatboxMessage(message);
   }
 
   $('#txtChatMessage').val('').focus();
-}
-
-// Function to append a chat message to the senders chatBox
-function appendMyChatboxMessage(message) {
-  var htmlMessage = '';
-  var fileTypeRE = /\.(jpe?g|png|gif|bmp)$/i;
-
-  if (message.type === 'text') {
-    htmlMessage = '<li class="chatMessageRight">' + message.text + '</li>';
-  } else if (message.type === 'file') {
-    if (fileTypeRE.test(message.text)) {
-      htmlMessage = '<li class="chatMessageRight"><img class="chatImage" src="' + message.text + '" alt="" /></li>';
-    } else {
-      htmlMessage = '<li class="chatMessageRight"><a href="' + message.text + '"><img class="chatImage" src="assets/images/if_Download_1031520.png" alt="Download File" /></a></li>';
-    }
-  }
-
-  $('#messages').append(htmlMessage);
-  chatboxScrollBottom();
-
-  if (allChatMessages[myFriend.id] != undefined) {
-    allChatMessages[myFriend.id].push(message);
-  } else {
-    allChatMessages[myFriend.id] = new Array(message);
-  }
-  socket.emit('chatMessage', message);
 }
 
 // function to emit an even to notify friend that I am typing a message 
@@ -153,31 +127,54 @@ function loadChatBox(messages) {
   $('#messages').html('').show();
   messages.forEach(function (message) {
     var cssClass = (message.sender == myUser.id) ? 'chatMessageRight' : 'chatMessageLeft';
-    $('#messages').append('<li class="' + cssClass + '">' + message.text + '</li>');
+    // Function call to append receiver's chat message to chatBox
+    appendMessage(message, cssClass);
   });
   chatboxScrollBottom();
 }
 
-// Append a single chant message to the receivers chatbox
-function appendChatMessage(message) {
-  if (message.receiver == myUser.id && message.sender == myFriend.id) {
-    var htmlMessage = '';
-    var cssClass = (message.sender == myUser.id) ? 'chatMessageRight' : 'chatMessageLeft';
-    var fileTypeRE = /\.(jpe?g|png|gif|bmp)$/i;
+// Function to append chat application to senders/receivers chatBox
+function appendMessage(message, cssClass) {
+  var htmlMessage = '';
+  var fileTypeRE = /\.(jpe?g|png|gif|bmp)$/i;
 
-    if (message.type === 'text') {
-      htmlMessage = '<li class="' + cssClass + '">' + message.text + '</li>';
-    } else if (message.type === 'file') {
-      if (fileTypeRE.test(message.text)) {
-        htmlMessage = '<li class="' + cssClass + '"><img class="chatImage" src="' + message.text + '" alt="" /></li>';
-      } else {
-        htmlMessage = '<li class="' + cssClass + '"><a href="' + message.text + '"><img class="chatImage" src="assets/images/if_Download_1031520.png" alt="Download File" /></a></li>';
-      }
+  if (message.type === 'text') {
+    htmlMessage = '<li class="' + cssClass + '">' + message.text + '</li>';
+  } else if (message.type === 'file') {
+    if (fileTypeRE.test(message.text)) {
+      htmlMessage = '<li class="' + cssClass + '"><img class="chatImage" src="' + message.text + '" alt="" /></li>';
+    } else {
+      htmlMessage = '<li class="' + cssClass + '"><a href="' + message.text + '"><img class="chatImage" src="assets/images/if_Download_1031520.png" alt="Download File" /></a></li>';
     }
+  }
 
-    $('#messages').append(htmlMessage);
+  $('#messages').append(htmlMessage);
+  chatboxScrollBottom();
+}
+
+// Function to append a chat message to the senders chatBox
+function appendSendersChatboxMessage(message) {
+  // Function call to append senders chat message to chatBox
+  appendMessage(message, 'chatMessageRight');
+
+  if (allChatMessages[myFriend.id] != undefined) {
+    allChatMessages[myFriend.id].push(message);
+  } else {
+    allChatMessages[myFriend.id] = new Array(message);
+  }
+  socket.emit('chatMessage', message);
+}
+
+// Append a single chant message to the receivers chatbox
+function appendReceiversChatMessage(message) {
+  if (message.receiver == myUser.id && message.sender == myFriend.id) {
+    var cssClass = (message.sender == myUser.id) ? 'chatMessageRight' : 'chatMessageLeft';
+
+    // Function call to append receivers chat message to chatBox
+    appendMessage(message, cssClass);
+
+    // Function call to play notification sound
     playNewMessageAudio();
-    chatboxScrollBottom();
   } else {
     playNewMessageNotificationAudio();
     updateChatNotificationCount(message.sender);
@@ -192,12 +189,12 @@ function appendChatMessage(message) {
 
 // Function to play a audio when new message arrives on selected chatbox
 function playNewMessageAudio() {
-  (new Audio('assets/audio/unconvinced.mp3')).play();
+  (new Audio('https://notificationsounds.com/soundfiles/8b16ebc056e613024c057be590b542eb/file-sounds-1113-unconvinced.mp3')).play();
 }
 
 // Function to play a audio when new message arrives on selected chatbox
 function playNewMessageNotificationAudio() {
-  (new Audio('assets/audio/to-the-point.mp3')).play();
+  (new Audio('https://notificationsounds.com/soundfiles/dd458505749b2941217ddd59394240e8/file-sounds-1111-to-the-point.mp3')).play();
 }
 
 // Function to update chat notifocation count
@@ -279,7 +276,8 @@ socket.on('onlineUsers', function (onlineUsers) {
 
 // Listen to chantMessage event to receive a message sent by my friend 
 socket.on('chatMessage', function (message) {
-  appendChatMessage(message);
+  // Function call to append a single chant message to the receivers chatbox
+  appendReceiversChatMessage(message);
 });
 
 // Listen to userIsDisconnected event to remove its chat history from chatbox
