@@ -192,12 +192,12 @@ function appendChatMessage(message) {
 
 // Function to play a audio when new message arrives on selected chatbox
 function playNewMessageAudio() {
-  (new Audio('https://notificationsounds.com/soundfiles/8b16ebc056e613024c057be590b542eb/file-sounds-1113-unconvinced.mp3')).play();
+  (new Audio('assets/audio/unconvinced.mp3')).play();
 }
 
 // Function to play a audio when new message arrives on selected chatbox
 function playNewMessageNotificationAudio() {
-  (new Audio('https://notificationsounds.com/soundfiles/dd458505749b2941217ddd59394240e8/file-sounds-1111-to-the-point.mp3')).play();
+  (new Audio('assets/audio/to-the-point.mp3')).play();
 }
 
 // Function to update chat notifocation count
