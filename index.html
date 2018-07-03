@@ -20,9 +20,11 @@
   <div class="chatContainer">
     <ul id="messages"></ul>
     <span id="notifyTyping"></span>
-    <form id="form" action="" onsubmit="return submitfunction();">
-      <input type="hidden" id="user" value="" /><input id="m" autocomplete="off" onkeyup="notifyTyping();" placeholder="Type yor message here.."
-      /><input type="submit" id="button" value="Send" />
+    <form id="form" action="" onsubmit="event.preventDefault(); return submitfunction();">
+      <input id="txtChatMessage" autocomplete="off" onkeyup="notifyTyping();" placeholder="Type yor message here.." />
+      <input type="submit" id="btnChatMessage" value="Send" />
+      <input type="image" id="imgAttachment" src="/assets/images/if_31_486131.png" width="30px" />
+      <input type="file" id="fileAttachment" />
     </form>
   </div>
 </body>
