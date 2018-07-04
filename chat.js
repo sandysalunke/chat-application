@@ -138,13 +138,16 @@ function appendMessage(message, cssClass) {
   var htmlMessage = '';
   var fileTypeRE = /\.(jpe?g|png|gif|bmp)$/i;
 
+  var messageTimestamp = new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+  var chatMessageTimestamp = '<label class="chatMessageTimestamp">' + messageTimestamp + '</label>';
+
   if (message.type === 'text') {
-    htmlMessage = '<li class="' + cssClass + '">' + message.text + '</li>';
+    htmlMessage = '<li class="' + cssClass + '">' + message.text + chatMessageTimestamp + '</li>';
   } else if (message.type === 'file') {
     if (fileTypeRE.test(message.text)) {
-      htmlMessage = '<li class="' + cssClass + '"><img class="chatImage" src="' + message.text + '" alt="" /></li>';
+      htmlMessage = '<li class="' + cssClass + '"><img class="chatImage" src="' + message.text + '" alt="" />' + chatMessageTimestamp + '</li>';
     } else {
-      htmlMessage = '<li class="' + cssClass + '"><a href="' + message.text + '"><img class="chatImage" src="assets/images/if_Download_1031520.png" alt="Download File" /></a></li>';
+      htmlMessage = '<li class="' + cssClass + '"><a href="' + message.text + '"><img class="chatImage" src="assets/images/if_Download_1031520.png" alt="Download File" /></a>' + chatMessageTimestamp + '</li>';
     }
   }
 
