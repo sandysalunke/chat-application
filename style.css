@@ -12,7 +12,7 @@ form input { border: 0; float: left; margin-right: .5%; }
 #txtChatMessage { padding: 10px; width: 85%; }
 form #btnChatMessage { color:#FFF; background: #34BB0C; border: none; padding: 10px;  width: 9%; }
 #fileAttachment { display: none; }
-#imgAttachment { cursor: pointer; padding: 3px; }
+#imgAttachment { padding: 3px; }
 .chatImage { max-width: 100%; }
 .userInfo { color: #FFF; font-weight: bold; font-size: 18px; width: 100%; border: 1px solid rgb(177, 113, 234); padding: 20px 8px; background: rgb(181, 125, 232); text-align: center; }
 .onlineUsersContainer { width: 20%; float: left; background-color: rgb(225, 203, 245); height: auto; overflow-y: auto; overflow-x: hidden; }
@@ -23,13 +23,13 @@ form #btnChatMessage { color:#FFF; background: #34BB0C; border: none; padding: 1
 .onlineUsersContainer li a { color: #6C0DC3; text-decoration:none; }
 .chatContainer { width: 80%; float: left; border-left: 3px solid #B57DE8; }
 #messages { list-style-type: none; margin: 0; padding: 0; position: absolute; bottom: 70px; padding-top: 70px; float: left; width: 79%; height: auto; max-height: 100%; overflow-y: auto; overflow-x: hidden; }
-#messages li { padding: 5px 10px; }
+#messages li { font-size: 12px; padding: 5px 10px; }
 #notifyTyping { font-size: 12px; position: fixed; bottom: 42px; width: 100%; padding: 5px; }
 .chatNotificationCount { color: #FFF; display: none; float: right; border-radius: 12px; border: 1px solid #2E8E12; background: #34BB0C; padding: 2px 6px; }
-#messages li.chatMessageRight { border-radius: 8px; padding: 10px; background: #56a8e3; color: #ffffff; position: relative; display: inline-block; max-width: 700px; float: right; clear: both; margin: 10px 5px;; }
+#messages li.chatMessageRight { border-radius: 8px; padding: 8px 10px 15px 10px; background: #56a8e3; color: #ffffff; min-width: 55px; position: relative; display: inline-block; max-width: 700px; float: right; clear: both; margin: 10px 5px;; }
 #messages li.chatMessageRight:before { border-bottom-color: #56a8e3; border-radius: 20px / 10px; left: auto; right: -7px; content: ''; position: absolute; }
 #messages li.chatMessageRight:after { border: 8px solid transparent; border-bottom-color: #56a8e3; border-radius: 20px / 10px; left: auto; right: -7px; bottom: 0px; content: ''; position: absolute; }
-#messages li.chatMessageLeft { border-radius: 8px; padding: 10px; background: #34BB0C; color: #ffffff; position: relative; display: inline-block; max-width: 700px; float: left; clear: both; margin: 12px; }
+#messages li.chatMessageLeft { border-radius: 8px; padding: 8px 10px 15px 10px; background: #34BB0C; color: #ffffff; min-width: 55px; position: relative; display: inline-block; max-width: 700px; float: left; clear: both; margin: 12px; }
 #messages li.chatMessageLeft:before { border-bottom-color: #34BB0C; border-radius: 20px / 10px; right: auto; left: -7px; content: ''; position: absolute; }
 #messages li.chatMessageLeft:after { border: 8px solid transparent; border-bottom-color: #34BB0C; border-radius: 20px / 10px; right: auto; left: -8px; bottom: 0px; content: ''; position: absolute; }
 .chatMessageTimestamp { font-style: italic; position: absolute; right: 10px; bottom: 3px; font-size: 8px; }
