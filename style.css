@@ -32,4 +32,4 @@ form #btnChatMessage { color:#FFF; background: #34BB0C; border: none; padding: 1
 #messages li.chatMessageLeft { border-radius: 8px; padding: 8px 10px 15px 10px; background: #34BB0C; color: #ffffff; min-width: 55px; position: relative; display: inline-block; max-width: 700px; float: left; clear: both; margin: 12px; }
 #messages li.chatMessageLeft:before { border-bottom-color: #34BB0C; border-radius: 20px / 10px; right: auto; left: -7px; content: ''; position: absolute; }
 #messages li.chatMessageLeft:after { border: 8px solid transparent; border-bottom-color: #34BB0C; border-radius: 20px / 10px; right: auto; left: -8px; bottom: 0px; content: ''; position: absolute; }
-.chatMessageTimestamp { font-style: italic; position: absolute; right: 10px; bottom: 3px; font-size: 8px; }
+.chatMessageTimestamp { color: #f3ea69; font-style: italic; position: absolute; right: 10px; bottom: 3px; font-size: 8px; }

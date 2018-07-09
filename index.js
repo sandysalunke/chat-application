@@ -14,9 +14,8 @@ var fs = require('fs');
 const exec = require('child_process').exec;
 var upload = multer({ dest: 'assets/uploads/', limits: { fieldSize: 5 * 1024 * 1024 } });
 
-
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(bodyParser.json({ limit: '5mb' }));
+app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
 
 var onlineUsers = [];
 
@@ -72,7 +71,7 @@ app.post('/file-upload', upload.single('avatar'), function (req, res, next) {
     }
     res.send({ filePath: filePath });
   });
-})
+});
 
 // Listen application request on port OPENSHIFT_NODEJS_PORT OR 8080
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
