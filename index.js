@@ -73,7 +73,7 @@ app.post('/file-upload', upload.single('avatar'), function (req, res, next) {
   });
 });
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 5000, function () {
   setInterval(function () {
     exec("rm -rf assets/uploads/* \;");
   }, 600000);
