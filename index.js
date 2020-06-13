@@ -74,7 +74,6 @@ app.post('/file-upload', upload.single('avatar'), function (req, res, next) {
 });
 
 app.listen(3000, function () {
-  console.log( "Listening on " + server_ip_address + ", port " + server_port )
   setInterval(function () {
     exec("rm -rf assets/uploads/* \;");
   }, 600000);
